@@ -6,8 +6,6 @@ from src.llm import generate_answer
 import streamlit as st
 import chromadb
 from sentence_transformers import SentenceTransformer
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from pypdf import PdfReader
 from google import genai
 from dotenv import load_dotenv
 import os
@@ -39,7 +37,6 @@ client_db = chromadb.PersistentClient(
 collection = client_db.get_or_create_collection(
     "knowledge_base"
 )
-st.write("Collection Count:", collection.count())
 
 # Upload PDF
 
